@@ -17,4 +17,4 @@ RUN pip install -r /veeam_to_msteams/requirements.txt
 RUN mkdir /var/log/veeam_to_msteams/
 ADD configuration.py /veeam_to_msteams/
 RUN chmod +x /veeam_to_teams/launch_veeam_to_msteams.sh
-CMD ["/bin/bash", "/Elisa/launch_veeam_to_msteams.sh"]
+CMD ["/bin/bash", "/veeam_to_teams/launch_veeam_to_msteams.sh"]
