@@ -1,0 +1,8 @@
+
+configuration.py
+configuration.ini
+__pycache__/logger_init.cpython-36.pyc
+__pycache__/custom_logic.cpython-36.pyc
+__pycache__/configuration.cpython-36.pyc
+*.xml
+.idea/Veeam_MS_Teams_notification.iml
