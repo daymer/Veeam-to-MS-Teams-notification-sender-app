@@ -31,6 +31,8 @@ def main_execution(latest_usn_func: int = 0, query_delay: int = 60):
             events_to_process.append(verified_event)
         for each_verified_event in events_to_process:
             if type(each_verified_event) == VeeamEvent:
+                # here you can filter events by VeeamEvent.job_type or VeeamEvent.result to send (or not send)
+                # more personalized notification into different channels, just add some additional logic here
                 result = custom_logic.send_notification_to_web_hook(event_object=each_verified_event, web_hook_url=each_verified_event.target_notification_channel)
                 if result is True:
                     MainLogger.info('Veeam event ' + str(each_verified_event.job_name) + ' created at ' + str(each_verified_event.end_time) + ' is processed')
@@ -47,7 +49,6 @@ def main_execution(latest_usn_func: int = 0, query_delay: int = 60):
                 MainLogger.info('Such event type isn\'t supported by this tinny app, '
                                 'what it is doing in events_to_process? :)')
             MainLogger.debug(str(type(each_verified_event)))
-    
 
     # waiting a query_delay, default: 60 sec
     other_time.sleep(query_delay)
