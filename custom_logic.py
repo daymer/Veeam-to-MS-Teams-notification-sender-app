@@ -144,7 +144,7 @@ def send_notification_to_web_hook(web_hook_url: str, event_object: VeeamEvent)->
             team_connection.color('ffff00')  # just Yellow
         elif event_object.result_text == 'failed':
             text = 'A Veeam ' + event_object.job_type_name + ' **"' + str(event_object.job_name) + '"** has **failed** with a result: \n\n"' + str(event_object.reason) + '" at ' + str(event_object.end_time)[:-7]
-            team_connection.color('ba0200')  #  "Veeam Accent Red"
+            team_connection.color('ba0200')  # "Veeam Accent Red"
     else:
         if event_object.result_text == 'success':
             # There is no need to notify about system events when everything is good
