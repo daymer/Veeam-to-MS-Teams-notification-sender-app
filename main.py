@@ -6,7 +6,7 @@ import time as other_time
 from logger_init import logging_config
 
 ConfigurationInstance = Integration()
-MainLogger = logging_config(integration_config=ConfigurationInstance, logging_mode='DEBUG', log_to_file=False, executable_path=__file__)
+MainLogger = logging_config(integration_config=ConfigurationInstance, logging_mode='INFO', log_to_file=True, executable_path=__file__)
 SqlConfigInstanceVeeamDB = SQLConfigVeeamDB()
 SqlConnectorInstanceVeeamDB = SQLConnectorVeeamDB(SqlConfigInstanceVeeamDB)
 MainLogger.info('Main process has been initialized')
