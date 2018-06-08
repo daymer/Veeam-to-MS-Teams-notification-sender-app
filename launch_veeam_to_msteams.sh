@@ -1,2 +1,2 @@
-git -C /veeam_to_teams/ pull origin
-python /veeam_to_teams/main.py
+git -C /veeam_to_msteams/ pull origin
+python /veeam_to_msteams/main.py

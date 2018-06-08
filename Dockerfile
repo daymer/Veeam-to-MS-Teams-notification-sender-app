@@ -1,5 +1,5 @@
 # Version: 1.0
-# docker build -t veeam_to_teams:1.0 -f /home/drozhd/veeam_to_teams/Dockerfile /home/drozhd/veeam_to_teams
+# docker build -t veeam_to_msteams:1.0 -f /home/drozhd/veeam_to_teams/Dockerfile /home/drozhd/veeam_to_teams
 FROM python:3.6.2
 MAINTAINER Dmitry Rozhdestvenskiy <dremsama@gmail.com>
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
@@ -16,5 +16,5 @@ RUN pip install --upgrade pip
 RUN pip install -r /veeam_to_msteams/requirements.txt
 RUN mkdir /var/log/veeam_to_msteams/
 ADD configuration.py /veeam_to_msteams/
-RUN chmod +x /veeam_to_teams/launch_veeam_to_msteams.sh
-CMD ["/bin/bash", "/veeam_to_teams/launch_veeam_to_msteams.sh"]
+RUN chmod +x /veeam_to_msteams/launch_veeam_to_msteams.sh
+CMD ["/bin/bash", "/veeam_to_msteams/launch_veeam_to_msteams.sh"]
