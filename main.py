@@ -12,9 +12,10 @@ SqlConnectorInstanceVeeamDB = SQLConnectorVeeamDB(SqlConfigInstanceVeeamDB)
 MainLogger.info('Main process has been initialized')
 IniFile = configparser.ConfigParser()
 IniFileName = 'configuration.ini'
+QueryDelay = 60
 
 
-def main_execution(latest_usn_func: int = 0, query_delay: int = 60):
+def main_execution(latest_usn_func: int = 0):
     # initialising target MS channels list
     ms_teams_inst = TeamsChannels()
     # loading latest events from Veeam DataBase
@@ -49,9 +50,6 @@ def main_execution(latest_usn_func: int = 0, query_delay: int = 60):
                 MainLogger.info('Such event type isn\'t supported by this tinny app, '
                                 'what it is doing in events_to_process? :)')
             MainLogger.debug(str(type(each_verified_event)))
-
-    # waiting a query_delay, default: 60 sec
-    other_time.sleep(query_delay)
     return latest_usn_func
 
 try:
@@ -70,6 +68,8 @@ try:
         with open(IniFileName, 'w') as configfile:
             IniFile.write(configfile)
             MainLogger.debug('USN updated')
+        # waiting a query_delay, default: 60 sec
+        other_time.sleep(QueryDelay)
 
 except Exception as any_error_which_could_occur:
     MainLogger.error('Main Execution was stopped due to the following error: \n'
