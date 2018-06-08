@@ -1,0 +1,25 @@
+from sys import platform
+
+
+class SQLConfigVeeamDB(object):
+    def __init__(self):
+        self.Server = r''  # Hostname
+        self.Database = 'VeeamBackup'
+        self.Username = 'ms_teams_watcher'
+        self.Password = '123@qwe'
+        self.Driver = '{ODBC Driver 13 for SQL Server}'
+
+
+class Integration(object):
+    def __init__(self):
+        if platform == "linux" or platform == "linux2":
+            self.log_location = '/var/log/veeam_to_msteams/'
+        elif platform == "win32":
+            self.log_location = 'C:\\Temp\\veeam_to_msteams\\logs\\'
+
+
+class TeamsChannels(object):
+    def __init__(self):
+        self.webhooks_dict = {
+            'default_channel': '' # WebHook url
+        }
